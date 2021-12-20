@@ -127,7 +127,7 @@ public function runQuery($query)
 					exit();
 			   }
 			   elseif($check['activate_user']=='0'){
-				$response=['status'=>false,'message'=>'Account not activated'];
+				$response=['status'=>false,'message'=>'Account not activated,check your mail for activation'];
 				return json_encode($response);
 					exit();
 			   }
@@ -303,7 +303,7 @@ public function add_user($post)
 			$sql = $this->con->query($insert);
 			if ($sql==true) {
 				$this->sendActivationMail($email,$key);
-			 $response=['status'=>true,'message'=>'Registered Successful'];
+			 $response=['status'=>true,'message'=>'Registered Successful,check your mail for activation'];
 				 return json_encode($response);
 					 exit();
 			}
